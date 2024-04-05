@@ -1,8 +1,19 @@
-function fibo(n){
-    return new Array(n).fill(0).reduce((arr, _ ,i) => {
-        arr.push((i <= 1) ? i : arr[i-2] + arr[i-1])
-        return arr
-    },[]) ;
+function getFibonacciSequence(length) {
+    return new Array(length).fill(0).reduce((fibonacci, _, index) => {
+      const nextFibonacci = (index <= 1) ? index : fibonacci[index - 2] + fibonacci[index - 1];
+      fibonacci.push(nextFibonacci);
+      return fibonacci;
+    }, []).slice(0, length);
   }
-  console.log(fibo(10));
+  
+  function getFibonacciNumbers(n) {
+    return getFibonacciSequence(n);
+  }
+  
+  function printFibonacciNumbers(n){
+    const fibonacciNumbers = getFibonacciNumbers(n);
+    console.log(fibonacciNumbers);
+  }
+  
+  printFibonacciNumbers(10);
   
